@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appels d'Urgence 911</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .tabs {
+            display: flex;
+            background: #f5f5f5;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            background: #e0e0e0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .tab:hover {
+            background: #d0d0d0;
+        }
+        
+        .tab.active {
+            background: white;
+            color: #667eea;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .dialogue-line {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .speaker {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .english {
+            color: #000;
+            font-size: 16px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .translation {
+            color: #d32f2f;
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+        
+        .phonetic {
+            color: #1976d2;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .play-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .play-btn:hover {
+            background: #5568d3;
+            transform: scale(1.05);
+        }
+        
+        .play-btn:active {
+            transform: scale(0.95);
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        
+        .title {
+            background: #ffd700;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab(0)">🔋 The Button Battery</button>
+            <button class="tab" onclick="showTab(1)">🍌 The Banana Peel</button>
+        </div>
+
+        <div class="content">
+            <div class="tab-content active" id="tab0">
+                <div class="title">THE BUTTON BATTERY</div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('911 operator. What is your emergency?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">911 operator. What is your emergency?</div>
+                    <div class="translation">Opérateur du 911. Quelle est votre urgence ?</div>
+                    <div class="phonetic">naïne ouane ouane opéréteur. Ouate iz ior èmeurdjeunssi ?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Young woman <button class="play-btn" onclick="speak('Help! Help me! My baby has swallowed a button battery.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Help! Help me! My baby has swallowed a button battery.</div>
+                    <div class="translation">À l'aide ! Aidez-moi ! Mon bébé a avalé une pile bouton.</div>
+                    <div class="phonetic">Hèlp! Hèlp mi! Maï bébé haz soualowd eu beuttone batteri.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('What is the name of your child? How old is he or she?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">What is the name of your child? How old is he or she?</div>
+                    <div class="translation">Quel est le nom de votre enfant ? Quel âge a-t-il ou elle ?</div>
+                    <div class="phonetic">Ouate iz ze néme ov ior tchaïlde? Haou olde iz hi or chi?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Young woman <button class="play-btn" onclick="speak('She\'s Olivia... Olivia Jones... She\'s just 2.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">She's Olivia... Olivia Jones... She's just 2.</div>
+                    <div class="translation">C'est Olivia... Olivia Jones... Elle n'a que 2 ans.</div>
+                    <div class="phonetic">Chiz Olivia... Olivia Djoneuz... Chiz djeuste tou.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('What is the address of the emergency?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">What's the address of the emergency?</div>
+                    <div class="translation">Quelle est l'adresse de l'urgence ?</div>
+                    <div class="phonetic">Ouatse ze adrèss ov ze èmeurdjeunssi?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Young woman <button class="play-btn" onclick="speak('416, chemin de la Madrague Ville.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">416, chemin de la Madrague Ville.</div>
+                    <div class="translation">416, chemin de la Madrague Ville.</div>
+                    <div class="phonetic">for sikstine, cheumine de la Madraghe Ville.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('What is the telephone number you are calling from?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">What's the telephone number you're calling from?</div>
+                    <div class="translation">Quel est le numéro de téléphone d'où vous appelez ?</div>
+                    <div class="phonetic">Ouatse ze télèfone neumbeur ior koling from?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Young woman <button class="play-btn" onclick="speak('06.12.34.56.78.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">06.12.34.56.78.</div>
+                    <div class="translation">06.12.34.56.78.</div>
+                    <div class="phonetic">ziro siks. ouane tou. tri for. faïve siks. sèveune eïte.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('Tell me exactly what has happened.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Tell me exactly what has happened.</div>
+                    <div class="translation">Dites-moi exactement ce qui s'est passé.</div>
+                    <div class="phonetic">Tèl mi iguezaktli ouate haz hapeuneude.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Young woman <button class="play-btn" onclick="speak('I was going to insert a new button battery in my watch when she took it and swallowed it in an instant... Oh my God...')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">I was going to insert a new button battery in my watch when she took it and swallowed it in an instant... Oh my God...</div>
+                    <div class="translation">J'allais insérer une nouvelle pile bouton dans ma montre quand elle l'a prise et l'a avalée en un instant... Oh mon Dieu...</div>
+                    <div class="phonetic">Aï ouaz goïngue tou inseurte eu niou beuttone batteri ine maï ouotch ouène chi touke ite ande soualowd ite ine eune insteunt... O maï Gode...</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('Calm down! When did it happen? Is she conscious?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Calm down! When did it happen? Is she conscious?</div>
+                    <div class="translation">Calmez-vous ! Quand est-ce arrivé ? Est-elle consciente ?</div>
+                    <div class="phonetic">Kame daoune! Ouène dide ite hapeuneune? Iz chi koncheusse?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Young woman <button class="play-btn" onclick="speak('It has just happened... Yes, she is. She is even fine...')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">It has just happened... Yes, she is. She's even fine...</div>
+                    <div class="translation">Cela vient d'arriver... Oui, elle l'est. Elle va même bien...</div>
+                    <div class="phonetic">Ite haz djeuste hapeuneude... Yèsse, chi iz. Chiz iveuneune faïne...</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('I see... Listen to me. It is very dangerous because it can cause internal burns or internal bleeding... So you have to go immediately to A. and E. Don\'t worry. It will be OK. Bye!')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">I see... Listen to me. It's very dangerous because it can cause internal burns or internal bleeding... So you have to go immediately to A. and E. Don't worry. It'll be OK. Bye!</div>
+                    <div class="translation">Je vois... Écoutez-moi. C'est très dangereux car cela peut causer des brûlures internes ou des saignements internes... Vous devez donc aller immédiatement aux urgences. Ne vous inquiétez pas. Ça ira. Au revoir !</div>
+                    <div class="phonetic">Aï si... Lisseuneune tou mi. Itsse véri déïndjereusse bikoz ite kane koze inteurneule beurnze or inteurneule blidingue... So iou have tou go imiditli tou é ande i. Donte ouorri. Itol bi oké. Baï!</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Young woman <button class="play-btn" onclick="speak('Yes... We are going... We are leaving... Thank you! Bye!')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Yes... We're going... We're leaving... Thank you! Bye!</div>
+                    <div class="translation">Oui... On y va... On part... Merci ! Au revoir !</div>
+                    <div class="phonetic">Yèsse... Ouir goïngue... Ouir livingue... Thenk iou! Baï!</div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab1">
+                <div class="title">THE BANANA PEEL</div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('911 operator. What is your emergency?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">911 operator. What is your emergency?</div>
+                    <div class="translation">Opérateur du 911. Quelle est votre urgence ?</div>
+                    <div class="phonetic">naïne ouane ouane opéréteur. Ouate iz ior èmeurdjeunssi ?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Old woman <button class="play-btn" onclick="speak('I need help! Ouch! I slipped on a banana peel in my kitchen... I fell down and I think my hip is broken...')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">I need help! Ouch! I slipped on a banana peel in my kitchen... I fell down and I think my hip is broken...</div>
+                    <div class="translation">J'ai besoin d'aide ! Aïe ! J'ai glissé sur une peau de banane dans ma cuisine... Je suis tombée et je pense que ma hanche est cassée...</div>
+                    <div class="phonetic">Aï nide hèlp! Aoutch! Aï slipte one eu beunana pile ine maï kitcheuneune... Aï fèl daoune ande aï tink maï hip iz brokeuneune...</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('Are you alone?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Are you alone?</div>
+                    <div class="translation">Êtes-vous seule ?</div>
+                    <div class="phonetic">Are iou euloune?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Old woman <button class="play-btn" onclick="speak('Yes, I am.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Yes, I am.</div>
+                    <div class="translation">Oui, je le suis.</div>
+                    <div class="phonetic">Yèsse, aï ame.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('What is your address?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">What's your address?</div>
+                    <div class="translation">Quelle est votre adresse ?</div>
+                    <div class="phonetic">Ouatse ior adrèss?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Old woman <button class="play-btn" onclick="speak('84, bd du Redon. 9th district.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">84, bd du Redon. 9th district.</div>
+                    <div class="translation">84, bd du Redon. 9ème arrondissement.</div>
+                    <div class="phonetic">eïti for, bi di diou Reudone. Naïnte distriktte.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('What is your telephone number?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">What's your telephone number?</div>
+                    <div class="translation">Quel est votre numéro de téléphone ?</div>
+                    <div class="phonetic">Ouatse ior télèfone neumbeur?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Old woman <button class="play-btn" onclick="speak('04.91.12.34.56')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">04.91.12.34.56</div>
+                    <div class="translation">04.91.12.34.56</div>
+                    <div class="phonetic">ziro for. naïne ouane. ouane tou. tri for. faïve siks.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('I see... What is your name? How old are you?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">I see... What's your name? How old are you?</div>
+                    <div class="translation">Je vois... Quel est votre nom ? Quel âge avez-vous ?</div>
+                    <div class="phonetic">Aï si... Ouatse ior néme? Haou olde are iou?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Old woman <button class="play-btn" onclick="speak('My name is Theresa May. I am 80.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">My name's Theresa May. I'm 80.</div>
+                    <div class="translation">Je m'appelle Theresa May. J'ai 80 ans.</div>
+                    <div class="phonetic">Maï némeuz Tèriza Mé. Aïme eïti.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('Do you take medicines?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Do you take medicines?</div>
+                    <div class="translation">Prenez-vous des médicaments ?</div>
+                    <div class="phonetic">Dou iou téke mèdisinze?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Old woman <button class="play-btn" onclick="speak('Yes, I do. I only take medication for my blood pressure.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Yes, I do. I only take medication for my blood pressure.</div>
+                    <div class="translation">Oui. Je prends seulement un médicament pour ma tension artérielle.</div>
+                    <div class="phonetic">Yèsse, aï dou. Aï onli téke mèdikécheuneune for maï bleude prècheur.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('Tell me more about how you are feeling now.')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Tell me more about how you're feeling now.</div>
+                    <div class="translation">Dites-moi en plus sur comment vous vous sentez maintenant.</div>
+                    <div class="phonetic">Tèl mi mor eubaout haou ior filingue naou.</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Old woman <button class="play-btn" onclick="speak('Well... It is very painful... It is bruising and swelling around my hip... And I cannot stand up... I am healthy, you know... I am very sad to be like this... Fortunately my door is not locked... Can you help me?')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Well... It's very painful... It's bruising and swelling around my hip... And I can't stand up... I'm healthy, you know... I'm very sad to be like this... Fortunately my door isn't locked... Can you help me?</div>
+                    <div class="translation">Eh bien... C'est très douloureux... Ça fait un bleu et ça gonfle autour de ma hanche... Et je ne peux pas me lever... Je suis en bonne santé, vous savez... Je suis très triste d'être comme ça... Heureusement ma porte n'est pas fermée à clé... Pouvez-vous m'aider ?</div>
+                    <div class="phonetic">Ouèl... Itsse véri péïnfoule... Itsse brouzingue ande souèlingue euraound maï hip... Ande aï kante stande eup... Aïme hèlti, iou no... Aïme véri sade tou bi laïke zisse... Fortcheuneutli maï dor izeunte lokeutte... Kane iou hèlp mi?</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Operator <button class="play-btn" onclick="speak('Yes, I can. Do not worry. Help is on its way! You can hang up! Bye!')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">Yes, I can. Don't worry. Help is on its way! You can hang up! Bye!</div>
+                    <div class="translation">Oui, je peux. Ne vous inquiétez pas. L'aide est en route ! Vous pouvez raccrocher ! Au revoir !</div>
+                    <div class="phonetic">Yèsse, aï kane. Donte ouorri. Hèlp iz one itsse oué! Iou kane hangue eup! Baï!</div>
+                </div>
+                
+                <div class="dialogue-line">
+                    <div class="speaker">
+                        Old woman <button class="play-btn" onclick="speak('OK. Thank you... Bye!')">🔊 Écouter</button>
+                    </div>
+                    <div class="english">O.K. Thank you... Bye!</div>
+                    <div class="translation">D'accord. Merci... Au revoir !</div>
+                    <div class="phonetic">O ké. Thenk iou... Baï!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            tabs[index].classList.add('active');
+            contents[index].classList.add('active');
+        }
+        
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+                utterance.pitch = 1;
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('Désolé, votre navigateur ne supporte pas la synthèse vocale.');
+            }
+        }
+    </script>
+</body>
+</html>
